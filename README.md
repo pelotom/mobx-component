@@ -37,14 +37,12 @@ Then you might want to make a MobX model that holds the 3 numbers and maybe defi
 
 ```ts
 class XYZModel implements XYZ {
-  @observed x: number
-  @observed y: number
-  @computed get z() { return x * y }
+  @observable x: number = 3
+  @observable y: number = 9
+  @computed get z() { return this.x * this.y }
 }
 
 const xyz = new XYZModel()
-xyz.x = 4
-xyz.y = 9
 ReactDOM.render(<Adder {...xyz} />, document.getElementById('root'))
 ```
 

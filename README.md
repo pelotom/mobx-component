@@ -4,7 +4,7 @@
 [![Dependency Status](https://img.shields.io/david/pelotom/mobx-react-wrap.svg)](https://david-dm.org/pelotom/mobx-react-wrap)
 [![devDependency Status](https://img.shields.io/david/dev/pelotom/mobx-react-wrap.svg)](https://david-dm.org/pelotom/mobx-react-wrap?type=dev)
 
-[MobX](https://mobxjs.github.io/mobx/) is awesome, but it tends to push you towards having just a single prop per React component, because the top-level props cannot be `@observable`. For example suppose you're making a dumb component which shows the sum of 3 numbers at all times. The straightforward thing to do is to make those numbers themselves props, like so:
+[MobX with React](https://github.com/mobxjs/mobx-react) is awesome, but it tends to push you towards having just a single prop per React component, because [the top-level props cannot be `@observable`](https://github.com/mobxjs/mobx-react/issues/124). For example suppose you're making a dumb component which shows the sum of 3 numbers at all times. The straightforward thing to do is to make those numbers themselves props, like so:
 
 ```ts
 interface XYZ {
@@ -61,7 +61,7 @@ Then use like so:
 ReactDOM.render(<Adder xyz={xyzModel} />, document.getElementById('root'))
 ```
 
-This plugin saves you that bit of boilerplate so you can write your component as you would have originally:
+This package saves you that bit of boilerplate so you can write your component as you would have originally:
 
 ```ts
 import wrap from 'mobx-react-wrap'

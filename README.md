@@ -71,7 +71,7 @@ ReactDOM.render(<Adder xyz={xyzModel} />, document.getElementById('root'))
 This package saves you that bit of boilerplate so you can write your component as you would have originally:
 
 ```ts
-import wrap from 'mobx-component'
+import mobxComponent from 'mobx-component'
 
 // Note that we don't need to use @observer here any more
 class Adder extends React.Component<XYZ, void> {
@@ -85,13 +85,13 @@ class Adder extends React.Component<XYZ, void> {
   }
 }
 
-export default wrap(Adder)
+export default mobxComponent(Adder)
 ```
 
 Even better, you can wrap a stateless component that does the same thing:
 
 ```ts
-export default wrap<XYZ>(({ x, y, z}) => (
+export default mobxComponent<XYZ>(({ x, y, z}) => (
   <span>
     x + y + z = {x + y + z}
   </span>

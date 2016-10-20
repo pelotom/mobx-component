@@ -4,12 +4,6 @@
 [![Dependency Status](https://img.shields.io/david/pelotom/mobx-react-wrap.svg)](https://david-dm.org/pelotom/mobx-react-wrap)
 [![devDependency Status](https://img.shields.io/david/dev/pelotom/mobx-react-wrap.svg)](https://david-dm.org/pelotom/mobx-react-wrap?type=dev)
 
-# mobx-react-wrap
-
-[![Build Status](https://img.shields.io/travis/pelotom/mobx-react-wrap/master.svg)](https://travis-ci.org/pelotom/mobx-react-wrap)
-[![Dependency Status](https://img.shields.io/david/pelotom/mobx-react-wrap.svg)](https://david-dm.org/pelotom/mobx-react-wrap)
-[![devDependency Status](https://img.shields.io/david/dev/pelotom/mobx-react-wrap.svg)](https://david-dm.org/pelotom/mobx-react-wrap?type=dev)
-
 [MobX](https://mobxjs.github.io/mobx/) is awesome, but it tends to push you towards having just a single prop per React component, because the top-level props cannot be `@observable`. For example suppose you're making a dumb component which shows the sum of 3 numbers at all times. The straightforward thing to do is to make those numbers themselves props, like so:
 
 ```ts

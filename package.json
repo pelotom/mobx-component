@@ -1,12 +1,12 @@
 {
-  "name": "mobx-react-wrap",
-  "version": "0.1.2",
+  "name": "mobx-components",
+  "version": "0.1.0",
   "description": "Simplified React components via MobX",
   "author": "Tom Crockett <pelotom@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pelotom/mobx-react-wrap.git"
+    "url": "https://github.com/pelotom/mobx-component.git"
   },
   "main": "index.js",
   "scripts": {
@@ -38,7 +38,6 @@
   },
   "peerDependencies": {
     "mobx": "<3",
-    "mobx-react": "<4",
     "react": "<16"
   },
   "devDependencies": {

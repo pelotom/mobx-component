@@ -1,12 +1,12 @@
-# mobx-react-wrap
+# mobx-component
 
-[![Build Status](https://img.shields.io/travis/pelotom/mobx-react-wrap/master.svg)](https://travis-ci.org/pelotom/mobx-react-wrap)
-[![Dependency Status](https://img.shields.io/david/pelotom/mobx-react-wrap.svg)](https://david-dm.org/pelotom/mobx-react-wrap)
-[![devDependency Status](https://img.shields.io/david/dev/pelotom/mobx-react-wrap.svg)](https://david-dm.org/pelotom/mobx-react-wrap?type=dev)
+[![Build Status](https://img.shields.io/travis/pelotom/mobx-component/master.svg)](https://travis-ci.org/pelotom/mobx-component)
+[![Dependency Status](https://img.shields.io/david/pelotom/mobx-component.svg)](https://david-dm.org/pelotom/mobx-component)
+[![devDependency Status](https://img.shields.io/david/dev/pelotom/mobx-component.svg)](https://david-dm.org/pelotom/mobx-component?type=dev)
 
 ## Installation
 ```
-$ npm install --save mobx-react-wrap
+$ npm install --save mobx-component
 ```
 
 ## What's all this now?
@@ -71,7 +71,7 @@ ReactDOM.render(<Adder xyz={xyzModel} />, document.getElementById('root'))
 This package saves you that bit of boilerplate so you can write your component as you would have originally:
 
 ```ts
-import wrap from 'mobx-react-wrap'
+import wrap from 'mobx-component'
 
 // Note that we don't need to use @observer here any more
 class Adder extends React.Component<XYZ, void> {

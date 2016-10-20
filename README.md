@@ -42,8 +42,10 @@ class XYZModel implements XYZ {
   @computed get z() { return x * y }
 }
 
-const xyzModel = new XYZModel()
-ReactDOM.render(<Adder {...xyzModel} />, document.getElementById('root'))
+const xyz = new XYZModel()
+xyz.x = 4
+xyz.y = 9
+ReactDOM.render(<Adder {...xyz} />, document.getElementById('root'))
 ```
 
 Unfortunately this won't work; the `x`, `y` and `z` values get copied out of the model, and the component won't be re-rendered when they change. The standard boilerplate solution is to use a single prop which holds the entire model:
@@ -101,5 +103,5 @@ export default mobxComponent<XYZ>(({ x, y, z}) => (
 Then use it like so:
 
 ```ts
-ReactDOM.render(<Adder model={xyzModel} />, document.getElementById('root'))
+ReactDOM.render(<Adder model={xyz} />, document.getElementById('root'))
 ```

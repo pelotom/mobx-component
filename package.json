@@ -1,12 +1,12 @@
 {
-  "name": "typescript-library-boilerplate",
+  "name": "mobx-react-wrap",
   "version": "0.1.0",
-  "description": "Boilerplate for TypeScript 2.0 libraries",
-  "author": "Max Davidson <davidsonmax@gmail.com>",
+  "description": "Simplify your MobX React components",
+  "author": "Tom Crockett <pelotom@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/maxdavidson/typescript-library-boilerplate.git"
+    "url": "https://github.com/pelotom/mobx-react-wrap.git"
   },
   "main": "dist/typescript-library-boilerplate.js",
   "module": "dist/typescript-library-boilerplate.es.js",

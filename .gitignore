@@ -1,0 +1,9 @@
+node_modules
+dist
+tmp
+typings
+coverage
+.nyc_output
+.vscode/*
+!.vscode/**/*.json
+npm-debug.log

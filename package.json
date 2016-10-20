@@ -1,6 +1,6 @@
 {
   "name": "mobx-react-wrap",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Simplified React components via MobX",
   "author": "Tom Crockett <pelotom@gmail.com>",
   "license": "MIT",

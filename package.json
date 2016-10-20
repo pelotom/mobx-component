@@ -39,7 +39,10 @@
     "node": ">=4.6.0",
     "npm": ">=2.15.9"
   },
-  "dependencies": {},
+  "peerDependencies": {
+    "mobx": "^2.6.0",
+    "mobx-react": "^3.5.8"
+  },
   "devDependencies": {
     "ava": "^0.16.0",
     "change-case": "^3.0.0",

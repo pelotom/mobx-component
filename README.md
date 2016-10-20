@@ -4,6 +4,13 @@
 [![Dependency Status](https://img.shields.io/david/pelotom/mobx-react-wrap.svg)](https://david-dm.org/pelotom/mobx-react-wrap)
 [![devDependency Status](https://img.shields.io/david/dev/pelotom/mobx-react-wrap.svg)](https://david-dm.org/pelotom/mobx-react-wrap?type=dev)
 
+## Installation
+```
+$ npm install --save mobx-react-wrap
+```
+
+## What's all this now?
+
 [MobX with React](https://github.com/mobxjs/mobx-react) is awesome, but it tends to push you towards having just a single prop per React component, because [the top-level props cannot be `@observable`](https://github.com/mobxjs/mobx-react/issues/124). For example suppose you're making a dumb component which shows the sum of 3 numbers at all times. The straightforward thing to do is to make those numbers themselves props, like so:
 
 ```ts

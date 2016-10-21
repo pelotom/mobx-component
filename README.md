@@ -11,95 +11,51 @@ $ npm install --save mobx-component
 
 ## What's all this now?
 
-[MobX with React](https://github.com/mobxjs/mobx-react) is awesome, but it tends to push you towards having just a single prop per React component, because [the top-level props cannot be `@observable`](https://github.com/mobxjs/mobx-react/issues/124). For example suppose you're making a dumb component which shows the sum of 3 numbers at all times. The straightforward thing to do is to make those numbers themselves props, like so:
+[MobX with React](https://github.com/mobxjs/mobx-react) is awesome, but it tends to push you towards having just a single prop per React component, because the top-level props cannot be `@observable`. For example suppose you have this model:
 
 ```ts
-interface XYZ {
-  x: number
-  y: number
-  z: number
-}
+import { observable, computed } from 'mobx'
 
-@observer
-export default class Adder extends React.Component<XYZ, void> {
-  render() {
-    const { x, y, z } = this.props
-    return (
-      <span>
-        x + y + z = {x + y + z}
-      </span>
-    )
-  }
-}
-```
-
-Then you might want to make a MobX model that holds the 3 numbers and maybe defines some relationship between them like so:
-
-```ts
-class XYZModel implements XYZ {
+class XYZ {
   @observable x: number = 3
   @observable y: number = 9
   @computed get z() { return this.x * this.y }
 }
-
-const xyz = new XYZModel()
-ReactDOM.render(<Adder {...xyz} />, document.getElementById('root'))
 ```
 
-Unfortunately this won't work; the `x`, `y` and `z` values get copied out of the model, and the component won't be re-rendered when they change. The standard boilerplate solution is to use a single prop which holds the entire model:
+You want to render it with a [stateless function component](https://facebook.github.io/react/docs/reusable-components.html#stateless-functions) which just takes `x` `y` and `z` props and renders them:
 
 ```ts
-@observer
-export default class Adder extends React.Component<{ xyz: XYZ }, void> {
-  render() {
-    const { x, y, z } = this.props.xyz
-    return (
-      <span>
-        x + y + z = {x + y + z}
-      </span>
-    )
-  }
-}
+import * as React from 'react
+import { observer } from 'mobx-react'
+
+const Adder = observer<XYZ>(({ x, y, z }) => <span>{x} + {y} + {z} = {x + y + z}</span>)
 ```
 
-Then use like so:
+Unfortunately this won't work; the properties get copied over and lose their "observability" before the render function is called by React. So instead you have to write it something like:
 
 ```ts
-ReactDOM.render(<Adder xyz={xyzModel} />, document.getElementById('root'))
+const Adder = observer<{ xyz: XYZ }>(({ xyz: { x, y, z }) => <span>{x} + {y} + {z} = {x + y + z}</span>)
 ```
 
-This package saves you that bit of boilerplate so you can write your component as you would have originally:
+Not quite as nice. Using this `mobx-component` you can write it the first way:
 
 ```ts
-import mobxComponent from 'mobx-component'
+import { component } from 'mobx-component'
 
-// Note that we don't need to use @observer here any more
-class Adder extends React.Component<XYZ, void> {
-  render() {
-    const { x, y, z } = this.props
-    return (
-      <span>
-        x + y + z = {x + y + z}
-      </span>
-    )
-  }
-}
-
-export default mobxComponent(Adder)
+const Adder = component<XYZ>(({ x, y, z }) => <span>x + y + z = {x + y + z}</span>)
 ```
 
-Even better, you can wrap a stateless component that does the same thing:
+The resulting `Adder` component has a single prop `model: XYZ`, so you would use it like so:
 
 ```ts
-export default mobxComponent<XYZ>(({ x, y, z}) => (
-  <span>
-    x + y + z = {x + y + z}
-  </span>
-)
-```
+import { render } from 'react-dom'
 
-Then use it like so:
+const xyz = new XYZ()
 
-```ts
-ReactDOM.render(<Adder model={xyz} />, document.getElementById('root'))
+ReactDOM.render(<Adder model={xyz} />)
+// renders: <span>3 + 9 + 27 = 39</span>
+
+xyz.x = 4
+// renders: <span>4 + 9 + 36 = 49</span>
 ```

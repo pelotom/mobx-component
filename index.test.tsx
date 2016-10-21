@@ -57,7 +57,7 @@ test('mobx-component unwrapped props are observable', t => {
   t.is('x=1', wrapper.find('label').text())
 })
 
-test('mobx-component compound components', t => {
+test('mobx-component unwrapped computed props are preserved', t => {
   const Component = component<Model>(model =>
     <label>y={model.y}</label>
   )

@@ -58,11 +58,11 @@ test('mobx-component unwrapped props are observable', t => {
 })
 
 test('mobx-component compound components', t => {
-  const Component = observer<Model>(model =>
+  const Component = component<Model>(model =>
     <label>y={model.y}</label>
   )
   const model = new Model()
-  const wrapper = mount(<Component {...model} />)
+  const wrapper = mount(<Component model={model} />)
   t.is('y=1', wrapper.find('label').text())
   model.x++
   t.is('y=2', wrapper.find('label').text())

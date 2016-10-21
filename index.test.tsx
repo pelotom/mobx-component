@@ -1,5 +1,5 @@
-import * as browserEnv from 'browser-env';
-browserEnv();
+import * as browserEnv from 'browser-env'
+browserEnv()
 
 import test from 'ava'
 import { mount } from 'enzyme'

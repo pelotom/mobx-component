@@ -12,6 +12,7 @@
     "experimentalDecorators": true,
     "jsx": "react"
   },
+  "compileOnSave": false,
   "include": [
     "**/*.ts",
     "**/*.tsx"

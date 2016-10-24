@@ -3,6 +3,8 @@
   "rules": {
     "semicolon": [true, "never"],
     "quotemark": [true, "single"],
-    "member-access": false
+    "member-access": false,
+    "curly": false,
+    "one-line": false
   }
 }

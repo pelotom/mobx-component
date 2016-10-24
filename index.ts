@@ -3,7 +3,7 @@ import { observer } from 'mobx-react'
 import cache from './cache'
 
 // Option 1: wrap when creating the component
-export default function wrapComponent<M>(component: React.StatelessComponent<M>) {
+export default function wrapComponent<M>(component: React.StatelessComponent<M>): React.ComponentClass<{ model: M }> {
   const cached = cache.get(component)
   if (cached)
     return cached

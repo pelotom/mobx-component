@@ -7,8 +7,7 @@ import * as React from 'react'
 import { observable, computed } from 'mobx'
 import { observer } from 'mobx-react'
 
-import createComponent, { createElement } from '.'
-import cache from './cache'
+import createComponent, { createElement, _cache as cache } from '.'
 
 class Model {
   @observable x: number = 0

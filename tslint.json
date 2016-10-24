@@ -5,6 +5,7 @@
     "quotemark": [true, "single"],
     "member-access": false,
     "curly": false,
-    "one-line": false
+    "one-line": false,
+    "variable-name": false
   }
 }
